@@ -76,11 +76,11 @@ begin
                    w_and when i_op(2 downto 1) = "01" else 
                    w_or when i_op(2 downto 1) = "10" else 
                    w_shift when i_op(2 downto 1) = "11";
---       w_carry <= '1' when (i_op = "000" AND (STD_LOGIC_VECTOR(unsigned(i_A) + unsigned(i_B)) > "11111111")) else
---                          '0';
+
+
        w_zero <= '1' when w_result = "00000000" else '0';
        w_sign <= '1' when w_result(7) = '1' else '0';
-	    --p. 244: adder
+       
 	-- CONCURRENT STATEMENTS ----------------------------
 	o_result <= w_result;
 	o_flag(2) <= w_sign; 
